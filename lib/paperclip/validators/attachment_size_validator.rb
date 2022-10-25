@@ -4,7 +4,8 @@ module Paperclip
   module Validators
     class AttachmentSizeValidator < ActiveModel::Validations::NumericalityValidator
       AVAILABLE_CHECKS = [:less_than, :less_than_or_equal_to, :greater_than, :greater_than_or_equal_to]
-
+      CHECKS = { less_than: :<, less_than_or_equal_to: :<=, greater_than: :>, greater_than_or_equal_to: :>= }
+      
       def initialize(options)
         extract_options(options)
         super
